@@ -1,0 +1,59 @@
+/* CSS Document */
+* html { background-image: url(about:blank); background-attachment: fixed; zoom: expression(function(ele){ ele.style.zoom = "1"; document.execCommand("BackgroundImageCache", false, true); }(this)); }
+body { font-size: 12px; font-family: "Microsoft YaHei"; color: #666;}
+html { overflow-y: scroll; }
+form, div, body, img, p, img, dl, dt, dd, input, h1, h2, h3, h4 { margin: 0px; padding: 0px; border: 0; }
+a { color: #333; text-decoration: none; }
+a:hover { text-decoration: none; }
+ul, li ,ol{ list-style: none; margin: 0; padding: 0; }
+input, textarea, select { color: #333; margin: 0; padding: 0; font-size: 12px; font-family: Arial; vertical-align: middle; }
+input:focus, textarea:focus { outline: none; }
+address, em, i { font-style: normal; }
+table { border-collapse: collapse; border-spacing: 0; table-layout: fixed; }
+input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="file"] > input[type="button"]::-moz-focus-inner { border: none; padding: 0; }
+.none { float: left; width: 0; height: 0; overflow: hidden; }
+.clearfix:after { content: ""; clear: both; display: block; height: 0; }
+.clearfix { zoom: 1; }
+.FL { float: left; }
+.FR { float: right; }
+
+
+.MT28{margin-top:28px;}
+.MT18{margin-top:18px;}
+.MT35{margin-top:35px;}
+.MT10{margin-top:10px;}
+.MT8{margin-top:8px;}
+.MT20{margin-top:20px;}
+
+.ML73{margin-left:73px;}
+.ML229{margin-left:229px;}
+.ML40{margin-left:40px;}
+
+.MR10{margin-right:10px;}
+.MR13{margin-right:13px;}
+.MR86{margin-right:86px;}
+.MR38{margin-right:38px;}
+.contentBox{width: 100%; height: 100%;}
+
+.HeaderOut{margin:0 auto; width: 1200px; height: 800px; margin: 0 auto; background: url(../img/tab_pic.png) no-repeat; background-size: 100% 100%;}
+.HeaderOut h1{float:left;display:block;width:250px;margin:20px 0 0 40px; height: 60px; background: url(../img/logo.png) no-repeat;}
+.HeaderOut h1 img{overflow: hidden; width: 250px; height: 60px; overflow: hidden;}
+.HeaderOut ul{position:relative;}
+.HeaderOut .NavOut{float:right;display:inline;margin-top:25px;margin-left:30px;position:relative;}
+.HeaderOut .NavOut .borderLine{border-radius: 45px; border: 2px solid #FFF;}
+.HeaderOut .NavOut li{float:left;display:block;width:116px; height: 50px; text-align:center; margin: 0 25px; line-height: 50px;}
+.HeaderOut .NavOut li span{font-size:20px;color:#FFF;font-family:"Microsoft YaHei";}
+.HeaderOut .NavOut li.cur i{font-size:15px;color:#7cc20a;}
+.HeaderOut .NavOut li.cur span{font-size:13px;color:#7cc20a;}
+
+.productMsg{
+ margin:0 auto; width: 1200px; height: 800px; margin: 0 auto; background: url(../img/pic2.png) no-repeat; background-size: 100% 100%;
+}
+
+/*.nav_scroll{background-color:#FE0000;display: none;width:116px;overflow: hidden;position: absolute;right: -4px;top: 50px;width: 1px;}*/
+.nav_scroll{position:absolute;bottom:-12px;left:0;z-index:9999;width:116px;height:4px;background:#7bc20c;}
+.FooterOut{width:100%;margin-top:70px;}
+.FooterOut .ImgBg{width:1000px;margin:0 auto;display:block;}
+.Footer{width:100%;height:149px;background:#eaeaef;border-top:2px solid #00a1e9;padding-top:40px;}
+.FooterMain{width:1000px;margin:0 auto;line-height:24px;color:#8d9095;text-align:center;}
+.FooterMain .SubNav a{color:#8d9095;}

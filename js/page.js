@@ -1,141 +1,87 @@
-window.onload = window.onscroll = window.onresize= function(){
-    /*IE和谷歌走onmousewheel 火狐走DOMMouseScroll必须由绑定事件触发*/
-
-    /*封装事件绑定函数*/
-    function AddEvent(obj,type,fn){
-        if(obj.addEventListener)
-        {
-            obj.addEventListener(type,fn,false);
-        }
-        else{
-            obj.attachEvent('on'+type,fn)
-        }
-    }
-
-    function Wheel(obj,callback){
-        /*滚轮兼容判断*/
-        if(window.navigator.userAgent.toLowerCase().indexOf('firefox')!=-1)
-        {
-            AddEvent(obj,'DOMMouseScroll',fn)
-        }else{
-            AddEvent(obj,'mousewheel',fn);
-        }
-
-        /*封装滚轮鼠标上下滑事件  IE和chrome走ev.wheelDelta  firefox走ev.detail*/
-        function fn(ev){
-            var ev = ev || event;
-            var Down = true;
-            if(ev.wheelDelta)
-            {
-                Down = ev.wheelDelta>0?true:false;
-            }else{
-                Down = ev.detail <0 ?true:false;
-            }	   
-            callback && callback(Down);
-            if(ev.preventDefault){
-                ev.preventDefault();
-            }
-             window.event.returnValue = false
-
-        }
-
-    }
-
-    /*回调函数使用*/
-    var timer = null;                                                          //定时器变量
-    var onOff = true;                                                          //滚轮 滚动开关
-    /*让IE兼容getElementsByClassName*/
-    if(!document.getElementsByClassName){
-      document.getElementsByClassName = function(className, element){
-        var children = (element || document).getElementsByTagName('*');
-        var elements = new Array();
-        for (var i=0; i<children.length; i++){
-          var child = children[i];
-          var classNames = child.className.split(' ');
-          for (var j=0; j<classNames.length; j++){
-            if (classNames[j] == className){ 
-              elements.push(child);
-              break;
-            }
-          }
-        } 
-        return elements;
-      };
-    }
-
-    var wrapDiv = document.getElementById('oBox');                              //父级DOM
-    var moveBox = document.getElementById('oBoxWrap');                          //动画DOM
-    var oCh = document.documentElement.clientHeight||document.body.clientHeight;//获取可视高度
-    var oDiv = document.getElementsByClassName('box');                          //获取每个可视区容器
+window.onload = function(){
+   var timer = null;                                                          //定时器变量
+    var onOff = true;
+    var screenHeigth = window.screen.height - 100;
+    //滚轮 滚动开关
+  var wrapDiv = document.getElementById('oBox'),                            //父级DOM
+      moveBox = document.getElementById('oBoxWrap'),                         //动画DOM
+      oCh = currentPosition=document.documentElement.scrollTop || document.body.scrollTop,//获取可视高度
+      twoPosition = $('.twoBox').offset().top;
+      threePosition = $('.twoBox').offset().top;
+      oDiv = document.getElementsByClassName('box');                          //获取每个可视区容器
+	 var scrollFunc = function (e, Positions) {  
+        e = e || window.event;  
+        if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件               
+            if (e.wheelDelta > 0) { //当滑轮向上滚动时  
+            	clearInterval(timer);  
+                timer=setInterval(runToTop,2);  
+            }  
+            if (e.wheelDelta < 0) { //当滑轮向下滚动时  
+                alert("滑轮向下滚动");  
+            }  
+        } else if (e.detail) {  //Firefox滑轮事件  
+            if (e.detail> 0) { //当滑轮向上滚动时
+            	clearInterval(timer);  
+                timer=setInterval(runToTop,2);  
+            }  
+            if (e.detail< 0) { //当滑轮向下滚动时  
+                alert("滑轮向下滚动");  
+            }  
+        }  
+    }  
+    //给页面绑定滑轮滚动事件  
+    if (document.addEventListener) { 
+        document.addEventListener('DOMMouseScroll', scrollFunc, false);  
+    }  
+    //滚动滑轮触发scrollFunc方法  //ie 谷歌  
+    window.onmousewheel = document.onmousewheel = scrollFunc
     
-    wrapDiv.style.height=oCh+'px';                                              //动态设置DOM 高度
-
-    /*小按钮轮播效果*/
-    var oBtn = document.getElementById('IconBox');
-    var aLiBtn = oBtn.getElementsByTagName('li');
-    var aSpan = oBtn.getElementsByTagName('span');
-    
-    for(var i=0;i<oDiv.length;i++){
-        if(i==0){aSpan[i].className="cur"}
-        oDiv[i].style.height = oCh+'px';
-        aSpan[i].attributes['data-value']=i; 
-    }
-    
-    /*运动函数*/
-    var animate = function(Index){
-        for(var i=0;i<aSpan.length;i++){
-            aSpan[i].className="";
-            if(i==Index){aSpan[Index].className="cur";}
-        }
-        moveBox.style.top = -oCh*Index+'px';
-    };
-
-    for(var i=0;i<aLiBtn.length;i++){
-        aLiBtn[i].index = i;
-        aLiBtn[i].onclick = function(){
-            /*切换小按钮当前效果*/
-            var Index = this.index;
-            aBtnClick(Index)
-        }
-
-        function aBtnClick(Index){
-            animate(Index);
-        }
-    }
-    
-    /*获取当前CUR 位置*/
-    var getCurrent = function(){
-        for(var i=0;i<aSpan.length;i++){
-            if(aSpan[i].className=='cur'){
-                return i;
-            }
-        }
-    };
-    
-    Wheel(document,function(T){
-        if(onOff){
-            clearTimeout(timer);
-            onOff = false;
-            var Index = getCurrent();                                              //获取当前CUR 位置
-            if(T){/*鼠标向上滚动*/
-                var I = Index-1;
-                if(I>=0){
-                   animate(I); 
-                }
-                timer = setTimeout(function(){
-                    onOff = true;
-                },500);
-            }else{/*鼠标向下滚动*/
-                var I = Index+1;
-                if(I<aSpan.length){
-                   animate(I); 
-                }
-                timer = setTimeout(function(){
-                    onOff = true;
-                },500);
-            }
-        }
-    })
-		   
+    //向上滚动
+    function runToTop(Position) { 
+	    var currentPosition=document.documentElement.scrollTop || document.body.scrollTop;   
+	    currentPosition-=10;
+	    if(oCh === document.body.scrollHeight) {
+	    	window.scrollTo(0,currentPosition);  
+	    }
+//	    if(currentPosition>100)  
+//	    {  
+//	        window.scrollTo(0,currentPosition);  
+//	    }  
+//	    else
+//	    {   console.log(oCh);
+//	        window.scrollTo(0,100); 
+//	        clearInterval(timer);  
+//   }  
+	} 
+//	/*获取当前CUR 位置*/
+//  function getCurrent(){
+//    var Currlocation = window.document 
+//     return Currlocation;
+//  };
+//	
+//	Wheel(document,function(T){
+//      if(onOff){
+//          clearTimeout(timer);
+//          onOff = false;
+//          var Index = getCurrent();                                              //获取当前CUR 位置
+//          if(T){/*鼠标向上滚动*/
+//              var I = Index-1;
+//              if(I>=0){
+//                 animate(I); 
+//              }
+//              timer = setTimeout(function(){
+//                  onOff = true;
+//              },500);
+//          }else{/*鼠标向下滚动*/
+//              var I = Index+1;
+//              if(I<aSpan.length){
+//                 animate(I); 
+//              }
+//              timer = setTimeout(function(){
+//                  onOff = true;
+//              },500);
+//          }
+//      }
+//  })
 }		
    

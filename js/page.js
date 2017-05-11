@@ -6,8 +6,9 @@ window.onload = function(){
   var wrapDiv = document.getElementById('oBox'),                            //父级DOM
       moveBox = document.getElementById('oBoxWrap'),                         //动画DOM
       oCh = currentPosition=document.documentElement.scrollTop || document.body.scrollTop,//获取可视高度
-      twoPosition = $('.twoBox').offset().top;
-      threePosition = $('.twoBox').offset().top;
+      twoPosition = $('.twoBox').offset().top,
+      threePosition = $('.twoBox').offset().top,
+      twoheigth = $('.twoBox').height();
       oDiv = document.getElementsByClassName('box');                          //获取每个可视区容器
 	 var scrollFunc = function (e, Positions) {  
         e = e || window.event;  
@@ -40,9 +41,19 @@ window.onload = function(){
     function runToTop(Position) { 
 	    var currentPosition=document.documentElement.scrollTop || document.body.scrollTop;   
 	    currentPosition-=10;
-	    if(oCh === document.body.scrollHeight) {
-	    	window.scrollTo(0,currentPosition);  
+               var h = document.body.scrollHeight - twoheigth; 
+	    if(currentPosition > h) {
+              var pageheigth = twoheigth*2;
+                     if(currentPosition>pageheigth) {
+                        console.log(pageheigth);
+                        window.scrollTo(0,currentPosition);  
+                     }else{
+                                          console.log(123);
+                        window.scrollTo(0,pageheigth); 
+                        clearInterval(timer);  
+                     }
 	    }
+
 //	    if(currentPosition>100)  
 //	    {  
 //	        window.scrollTo(0,currentPosition);  

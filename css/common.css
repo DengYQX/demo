@@ -17,12 +17,23 @@ input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, i
 .FL { float: left; }
 .FR { float: right; }
 .textCent{text-align: center;}
+.in_block{display: inline-block;}
 .cuizhi_align{vertical-align: middle;}
 .businessHeigth{height: 450px;}
 .contentWidth{width: 1100px; margin: 0 auto; overflow: hidden; position: relative; }
 .businessTitle{font-size: 26px; font-weight: bold; color: #0078FF; }
 .businessMsg{font-size: 18px; line-height: 30px;}
 
+.aboutTitle{font-size: 24px; font-weight: bold; color: #0078FF; }
+.aboutMsg{font-size: 16px; line-height: 40px;}
+
+.suIcon {
+    width: 5px;
+    height: 25px;
+    background-color: #0078FF;
+    display: inline-block;
+    vertical-align: middle;
+}
 .MT30{margin-top:30px;}
 .MT20{margin-top:20px;}
 .MT35{margin-top:35px;}
@@ -30,6 +41,8 @@ input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, i
 .MT50{margin-top:50px;}
 .MT60{margin-top:60px;}
 .MT10{margin-top:10px;}
+.MT100{margin-top:100px;}
+.MT300{margin-top:300px;}
 .MT8{margin-top:8px;}
 .MT25{margin-top:25px;}
 .MT15{margin-top:15px;}
@@ -42,3 +55,6 @@ input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, i
 .MR13{margin-right:13px;}
 .MR120{margin-right:120px;}
 .MR50{margin-right:50px;}
+.MR60{margin-right:60px;}
+.MR40{margin-right:40px;}
+.MTT100{margin-bottom:100px;}

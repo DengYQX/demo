@@ -2,8 +2,7 @@ window.onload = function() {
     var timer = null; //定时器变量
     var onOff = true;
     var screenHeigth = window.screen.height - 100;
-    var numbers1 = 0;
-    var numbers2 = 0;
+    var numbers = 0;
     //滚轮 滚动开关
     var wrapDiv = document.getElementById('oBox'), //父级DOM
         moveBox = document.getElementById('oBoxWrap'), //动画DOM
@@ -46,7 +45,7 @@ window.onload = function() {
         if (currentPosition > 1400) {
             var d = 7,
                 dt = null;
-            if (numbers1 === 0) {
+            if (numbers === 0) {
                 if (d < 14) {
                     dt = setInterval(function() {
                         $(".dateNum").text(d);
@@ -57,8 +56,11 @@ window.onload = function() {
                     }, 100);
                     $('#myStat').circliful();
                 };
-                numbers1 = 1;
-                numbers2 = 1;
+                numbers = 1;
+                $(".progBox2").addClass('progress2');
+                setTimeout(function(){
+                    $(".progBox1").addClass('progress1');
+                }, 2000)
             }
         }
     }

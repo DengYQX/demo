@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>about</title>
+    <link rel="Shortcut Icon" href="img/logo_big.png">
+    <link rel="stylesheet" type="text/css" href="css/help.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
+
+<body>
+    <div class="contentBox">
+        <div class="scene oneBox">
+        	  <div class='figure'></div>
+        	  <div class="menuSelect">
+        	     <div class="textCent MT40">
+                        <div class="iconBox MR120">
+                            <div class="icon1"></div>
+                            <div class="MT10 "><span class="businessMsg">产品介绍</span></div>
+                        </div>
+                        <div class="iconBox MR120">
+                            <div class="icon2"></div>
+                            <div class="MT10 "><span class="businessMsg">账户安全</span></div>
+                        </div>
+                        <div class="iconBox MR120">
+                            <div class="icon3"></div>
+                            <div class="MT10 "><span class="businessMsg">信用评估</span></div>
+                        </div>
+                        <div class="iconBox ">
+                            <div class="icon4"></div>
+                            <div class="MT10 "><span class="businessMsg">借款流程</span></div>
+                        </div>
+                   </div>
+        	</div>
+            <div class="contentWidth clearfix" style="height: 100px;">
+                <h1></h1>
+                <div class="NavOut">
+                    <ul id="NavBox">
+                        <li>
+                            <a href="index.html">
+                                <span>首页</span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="about.html">
+                                <span>关于我们</span>
+                            </a>
+                        </li>
+                        <li class="borderLine">
+                            <a href="help.html">
+                                <span>帮助中心</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contentWidth MT300 ">
+                <p class="detaillStyle">关于爱信钱包你知道多少？
+                </p>
+                <p class="detaillStyle">轻松玩转爱信钱包
+                </p>
+            </div>
+        </div>
+        <div class="scene threeBox">
+            <div class="business1 MTT100 MT100">
+                <div class="contentWidth clearfix">
+                    <div class="msgBox ML50 MT100">
+                        <div class="infoMsg" style="width: 100%">
+                            <p><span class="suIcon"></span><span class='aboutTitle cuizhi_align ML10'>为什么从爱信钱包可以这么快借到钱？<span></p>
+		       <p class="MT15 "><span class="aboutMsg">爱信钱包作为一家先进的金融科技公司，我们通过移动互联网平台连接投资人和借款人，使用领先的大数据技术征信，所以只要您是信用良好的用户，就可以通过爱信钱包平台享受24小时极速审核并即时到账的普惠金融服务。</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="business1 MTT100" >
+                <div class="contentWidth clearfix">
+                    <div class="msgBox ML50">
+                        <div class="infoMsg" style="width: 100%">
+                            <p><span class="suIcon"></span><span class='aboutTitle cuizhi_align ML10'>从爱信钱包借款会影响我以后的信用吗？<span></p>
+		       <p class="MT15 "><span class="aboutMsg">我们与多家征信系统及资信评估公司有着长期良好的合作关系，只要您保持良好的按时还款习惯，不出现逾期还款行为，将有助于提升您的信用等级。</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="business1 MTT100">
+                <div class="contentWidth clearfix">
+                    <div class="msgBox ML50">
+                        <div class="infoMsg" style="width: 100%">
+                            <p><span class="suIcon"></span><span class='aboutTitle cuizhi_align ML10'>如何使用爱信钱包借钱？<span></p>
+		       <p class="MT15 "><span class="aboutMsg">安卓及苹果手机用户可以在爱信钱包官网以及各大应用市场搜索并下载爱信钱包APP，注册并提交申请即可。</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scene fourBox">
+            <p class="textCent"><span class="MT60 fourBoxinfo"><span>您的随身</span><span class="ML20">应用钱包</span></span>
+            </p>
+            <div class="MT60 textCent">
+                <div class="iconBox MR40 textCent">
+                    <div class="icon1"></div>
+                    <div class="MT30  in_block"><span class="fontStyle">官方微信 : 爱信钱包侠</div>
+                </div>
+                <div class="iconBox textCent">
+                    <div class="icon2"></div>
+                    <div class="MT30 in_block "><span class="fontStyle">爱信钱包APP下载</div>
+                </div>
+            </div>
+            <div  class="MT60 textCent">
+            	<span  class="infofont">
+            		Copyright © 2017 yongqianbao.com inc. All Rights Reserved. 浙ICP备13049282号. 版权所有 浙江贝汇科技有限公司 
+            	</span>
+                    </div>
+                </div>
+            </div>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script>
+var linkElemnet = $(".oneBox").find('li');
+for (var i = 0; i < linkElemnet.length; i++) {
+    linkElemnet[i].onmouseover = function(e) {
+        e.stopPropagation();
+        if (this.class !== "borderLine") {
+            $(this).addClass("borderLine");
+        }
+        $(this).siblings('li').removeClass('borderLine');
+    }
+}
+</script>
+
+</html>

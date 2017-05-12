@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>爱信钱包</title>
+    <link rel="Shortcut Icon" href="img/logo_big.png">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.circliful.css" />
@@ -18,17 +19,17 @@
                 <div class="NavOut">
                     <ul id="NavBox">
                         <li class="borderLine">
-                            <a href="#">
+                            <a href="index.html">
                                 <span>首页</span>
                             </a>
                         </li>
                         <li>
-                            <a href="JianJie.html">
+                            <a href="about.html">
                                 <span>关于我们</span>
                             </a>
                         </li>
                         <li>
-                            <a href="YouXi2.html">
+                            <a href="help.html">
                                 <span>帮助中心</span>
                             </a>
                         </li>
@@ -84,19 +85,20 @@
 							<p class="MT15 ML50"><b class="businessMsg">7 - 14</b><span class="businessMsg">天的借款时间让你的资金自由掌控，省钱，省事，更省心。</span></p>
                     </div>
                     <div class="ImgBox MR50 textCent">
-                    		<span class="dateNum"></span>
-                    	     <!-- <div class="dataStatistics">
+                        <span class="dateNum"></span>
+                        <!-- <div class="dataStatistics">
 			 <div class="digit_set"></div>
 			 <div class="digit_set set_last"></div>
 		    </div> -->
-                    	</div>
+                    </div>
                 </div>
             </div>
             <div class="business2 businessHeigth">
                 <div class="contentWidth clearfix">
                     <div class="ImgBox ML50">
-                    	     <div id="myStat" data-dimension="60" data-width="3" data-fontsize="15" data-percent="85" data-fgcolor="#20C3E3" data-bgcolor="#7080FF" data-fill="#4D62FF" data-icon-color="#FFF"></div>
-
+                        <div id="myStat" data-dimension="60" data-width="3" data-fontsize="15" data-percent="85" data-fgcolor="#20C3E3" data-bgcolor="#7080FF" data-fill="#4D62FF" data-icon-color="#FFF"></div>
+                        <div class="progBox1"></div>
+                        <div class="progBox2"></div>
                     </div>
                     <div class="msgBox MR50">
                         <div style=" height: 40px;">
@@ -121,7 +123,7 @@
                         <div class="bule_line"></div>
                     </div>
                     <div class="MT60 textCent">
-                        <div class="iconBox MR120">
+                        <div class="iconBox textCent MR120">
                             <div class="icon1"></div>
                             <div class="MT30 "><span class="businessMsg"><b>1.</b>下载APP</span></div>
                         </div>
@@ -137,7 +139,24 @@
                 </div>
             </div>
         </div>
-        <div class="scene fourBox"></div>
+        <div class="scene fourBox">
+            <p class="textCent"><span class="MT60 fourBoxinfo"><span>您的随身</span><span class="ML20">应用钱包</span></span></p>
+            <div class="MT60 textCent">
+                <div class="iconBox MR40 textCent">
+                    <div class="icon1"></div>
+                    <div class="MT30  in_block"><span class="fontStyle">官方微信 : 爱信钱包侠</div>
+                </div>
+                <div class="iconBox textCent">
+                    <div class="icon2"></div>
+                    <div class="MT30 in_block "><span class="fontStyle">爱信钱包APP下载</div>
+                </div>
+            </div>
+            <div  class="MT60 textCent">
+            	<span  class="infofont">
+            		Copyright © 2017 yongqianbao.com inc. All Rights Reserved. 浙ICP备13049282号. 版权所有 浙江贝汇科技有限公司 
+            	</span>
+            </div>
+        </div>
     </div>
 </body>
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -148,6 +167,7 @@
 <script>
 $(function() {
     var screenHeigth = window.screen.height - 100;
+    $('.twoBox').css("height", screenHeigth);
     $('.twoBox').css("height", screenHeigth);
     var linkElemnet = $(".oneBox").find('li');
     for (var i = 0; i < linkElemnet.length; i++) {

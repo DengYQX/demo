@@ -54,7 +54,7 @@ window.onload = function() {
                             clearInterval(dt);
                         }
                     }, 100);
-                    $('#myStat').circliful();
+                //    $('#myStat').circliful();
                 };
                 numbers = 1;
                 $(".progBox2").addClass('progress2');
@@ -69,18 +69,17 @@ window.onload = function() {
     function runToTop(Position) {
         var currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
         currentPosition -= 10;
-        var h = document.body.scrollHeight - twoheigth;
-        if (currentPosition > h) {
-            var pageheigth = twoheigth * 2;
-            if (currentPosition > pageheigth) {
-                console.log(pageheigth);
-                window.scrollTo(0, currentPosition);
-            } else {
-                console.log(123);
-                window.scrollTo(0, pageheigth);
-                clearInterval(timer);
-            }
-        }
+        // var h = document.body.scrollHeight - twoheigth;
+        // if (currentPosition > h) {
+        //     var pageheigth = twoheigth * 2;
+        //     if (currentPosition > pageheigth) {
+        //         console.log(pageheigth);
+        //         window.scrollTo(0, currentPosition);
+        //     } else {
+        //         window.scrollTo(0, pageheigth);
+        //         clearInterval(timer);
+        //     }
+        // }
 
         //      if(currentPosition>100)  
         //      {  
